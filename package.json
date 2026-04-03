@@ -8,7 +8,9 @@
     "build": "vite build",
     "preview": "vite preview",
     "clean": "rm -rf dist",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "check": "npm run lint && npm run build",
+    "ready:push": "npm run check"
   },
   "dependencies": {
     "@google/genai": "^1.46.0",

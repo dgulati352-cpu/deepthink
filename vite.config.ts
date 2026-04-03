@@ -5,8 +5,10 @@ import {defineConfig, loadEnv} from 'vite';
 
 export default defineConfig(({mode}) => {
   const env = loadEnv(mode, '.', ['VITE_', 'GEMINI_', 'CEREBRAS_', 'GROK_', 'NVIDIA_', 'OPENAI_']);
+  const basePath = process.env.VITE_BASE_PATH || env.VITE_BASE_PATH || '/';
   
   return {
+    base: basePath,
     plugins: [react(), tailwindcss()],
     optimizeDeps: {
       entries: ['index.html'],
